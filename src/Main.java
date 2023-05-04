@@ -4,7 +4,8 @@ public class Main {
 
         for (Planets planet: Planets.values()) {
 //            distanceSun1 += planet.getDistanceSun();
-            System.out.println(planet.getNum() + " " + planet + " Віддаленість від сонця: " + planet.getDistanceSun() + " Наступна планета: " + planet.getNextPlanet());
+            System.out.println(planet.getNum() + " " + planet + " Віддаленість від сонця: " + planet.getDistanceSun() + " Наступна планета: "
+                    + planet.getNextPlanet() + " (інший спосіб виведення наступної планети: " + planet.getNextPlanet2() + ")");
         }
     }
 }

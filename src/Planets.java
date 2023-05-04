@@ -13,8 +13,8 @@ public enum Planets {
     private double distanceSun;//віддаленість від сонця
     private double distanceSunToMercury = 57.89; //віддаленість від сонця до меркурія
     private final double radius; //радіус - км
-//    private final String previousPlanet; //попередня планета
-//    private String nextPlanet; //наступна планета
+    //    private final String previousPlanet; //попередня планета
+    private Planets nextPlanet2; //наступна планета
 
     Planets(int num, double distancePreviousPlanet, double radius, Planets previousPlanet) {
         this.num = num;
@@ -27,6 +27,7 @@ public enum Planets {
             this.distanceSun = distanceSunToMercury;
         } else {
             this.distanceSun = previousPlanet.distanceSun + distancePreviousPlanet;
+            previousPlanet.nextPlanet2 = this;
         }
     }
 
@@ -40,12 +41,16 @@ public enum Planets {
 
     public Planets getNextPlanet() {
         Planets nextPlanet = null;
-        for (Planets planet: Planets.values()) {
+        for (Planets planet : Planets.values()) {
             if (planet.num == this.num + 1) {
                 nextPlanet = planet;
             }
         }
         return nextPlanet;
+    }
+
+    public Planets getNextPlanet2() {
+        return nextPlanet2;
     }
 }
 
